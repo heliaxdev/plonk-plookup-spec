@@ -54,9 +54,7 @@
 		
 		Both $f$ and $t$ may need to be padded in order to get them to be the correct size. 
 		
-		However, if either $f$ or $t$ contains many repeats of the same value (say a certain query is repeated many times, or the lookup table is small and needs to be padded with many copies of a dummy row), and that value is very small or very large, it can happen that $h_1$ or $h_2$ consists entirely of the repeated element. When this vector is interpolated the resulting polynomial will be constant.
-		
-		[[Is this bad, apart from Dusk's code throwing an error? Will Kate commitments fail? Security broken?]]
+		However, if either $f$ or $t$ contains many repeats of the same value (say a certain query is repeated many times, or the lookup table is small and needs to be padded with many copies of a dummy row), and that value is very small or very large, it can happen that $h_1$ or $h_2$ consists entirely of the repeated element. When this vector is interpolated the resulting polynomial will be of degree 0. Committing to a constant polynomial using the Kate commitment scheme will expose the entire polynomial [KZG10]. 
 		
 		To prevent this, care must be taken to pad $f$ and $t$ with a field element that is neither the largest nor the smallest of either.
 		
